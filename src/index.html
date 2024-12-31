@@ -39,7 +39,7 @@
           <p>UX Engineer</p>
         </div>
       </article>
-      
+
       <article class="carousel-item">
         <figure>
           <img class="avatar" src="./images/image-john.jpg" alt="John">
@@ -55,36 +55,56 @@
         </div>
       </article>
 
-      <div class="icons-container">
-        <button>
-          <img class="icons" src="./images/icon-prev.svg" alt="icon-prev">
-        </button>
-        <button>
-          <img class="icons" src="./images/icon-next.svg" alt="icon-next">
-        </button>
-      </div>
+    </div>
+
+    <div class="icons-container">
+      <button>
+        <img class="icons" src="./images/icon-prev.svg" alt="icon-prev" onclick="prevSlide()">
+      </button>
+      <button>
+        <img class="icons" src="./images/icon-next.svg" alt="icon-next" onclick="nextSlide()">
+      </button>
+    </div>
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
     </div>
   </section>
 
+  
 
 
+  <script>
+    let currentIndex = 0;
 
+    function showSlide(index) {
+      const slides = document.querySelectorAll(".carousel-item");
 
+      if (index >= slides.length) {
+        currentIndex = 0;
+      } else if (index < 0) {
+        currentIndex = slides.length - 1
+      } else {
+        currentIndex = index
+      }
 
+      const offset = -currentIndex * 100;
+      document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+    }
 
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
 
+    document.addEventListener('DOMContentLoaded', () => {
+      showSlide(currentIndex);
+    });
 
-
-
-  <!-- 
-
-
- -->
-  <!-- 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
+  </script>
 </body>
 
 </html>

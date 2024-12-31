@@ -23,11 +23,11 @@ html {
   background-position: left bottom;
   background-size: 20rem;
   height: 100vh;
+  position: relative;
 }
 
 .carousel-inner {
   display: flex;
-  position: relative;
   transition: transform 0.5s ease-in-out;
 }
 
